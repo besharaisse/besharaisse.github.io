@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Beshara Isse | IT Portfolio</title>
+  <meta name="description" content="Beshara Isse is an Information Technology student at the University of Washington Tacoma with experience in software development, cybersecurity, data analysis, and web development.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --background: #FAF8FD;
+      --text: #1F1B2E;
+      --muted: #5A5370;
+      --primary: #4B2E83;
+      --primary-hover: #3A2268;
+      --light-purple: #ECE5F7;
+      --border: #DDD3EE;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-family: "Fraunces", serif;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 46px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 0 0 40px;
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 0 0 12px;
+    }
+
+    section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      left: 10px;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250, 248, 253, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Fraunces", serif;
+      font-size: 23px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* BUTTONS */
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 50px;
+      border: 1.5px solid var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-hover);
+      color: var(--white);
+    }
+
+    .button-outline {
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .button-outline:hover {
+      background: var(--light-purple);
+    }
+
+    .nav-resume {
+      padding: 9px 18px;
+      color: white;
+    }
+
+    .nav-resume:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 110px 0 100px;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 0 0 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(58px, 9vw, 100px);
+      font-weight: 400;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin: 0 0 24px;
+    }
+
+    .hero-role {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 500;
+      margin: 0 0 22px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 730px;
+      margin: 0 0 20px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    /* PROJECTS */
+
+    .featured-project {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 55px;
+    }
+
+    .project-tools {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .project-description {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .project-findings {
+      padding-left: 20px;
+      margin-bottom: 28px;
+    }
+
+    .project-findings li {
+      margin-bottom: 10px;
+    }
+
+    .project-image {
+      min-height: 280px;
+      padding: 24px;
+      background: var(--light-purple);
+      border-radius: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 40px;
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-row p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      margin-bottom: 12px;
+      background: var(--light-purple);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-link {
+      display: inline-block;
+      font-weight: 600;
+      text-underline-offset: 4px;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .experience-date {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .experience-item p {
+      max-width: 650px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* SKILLS */
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px 40px;
+      margin: 0;
+    }
+
+    .skills-list dt {
+      font-weight: 700;
+    }
+
+    .skills-list dd {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      background: var(--primary);
+      color: white;
+      border-radius: 28px;
+      padding: 60px;
+    }
+
+    .contact-card h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact-card p {
+      color: #E8E0F5;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .contact-card .button {
+      background: white;
+      border-color: white;
+      color: var(--primary);
+    }
+
+    .contact-card .button:hover {
+      background: var(--light-purple);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .contact-links a {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    @media (max-width: 800px) {
+      .featured-project,
+      .project-row,
+      .experience-item,
+      .skills-list {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .contact-card {
+        padding: 40px 28px;
+      }
+
+      .skills-list {
+        gap: 8px;
+      }
+
+      .skills-list dd {
+        margin-bottom: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      html {
+        scroll-padding-top: 150px;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 54px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        align-items: flex-start;
+      }
+
+      .project-image {
+        min-height: 180px;
+        padding: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button,
+      nav a {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAVIGATION -->
+
+  <header>
+    <div class="container navbar">
+      <a href="#top" class="logo">Beshara Isse</a>
+
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="Beshara_Isse_Resume.pdf"
+           class="button button-primary nav-resume"
+           target="_blank"
+           rel="noopener noreferrer">
+          Resume
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <!-- HERO -->
+
+      <div class="hero">
+        <p class="hero-eyebrow">
+          Welcome to my portfolio
+        </p>
+
+        <h1>Beshara Isse</h1>
+
+        <p class="hero-role">
+          Information Technology Student &amp; Aspiring IT Professional
+        </p>
+
+        <p class="hero-description">
+          I'm an Information Technology student at the
+          University of Washington Tacoma, graduating in
+          June 2027. My interests include cybersecurity,
+          data analysis, and software development.
+        </p>
+
+        <p class="hero-description">
+          Through an international software development
+          internship and hands-on technical projects, I've
+          gained experience building applications, analyzing
+          data, and developing solutions to real-world problems.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="button button-primary">
+            Explore My Projects
+          </a>
+
+          <a href="https://github.com/besharaisse"
+             class="button button-outline"
+             target="_blank"
+             rel="noopener noreferrer">
+            View GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+
+      <section id="projects">
+        <h2>Featured Projects</h2>
+
+        <!-- CYBERSECURITY INCIDENT ANALYSIS -->
+
+        <article class="featured-project">
+          <div>
+            <span class="project-tag">Data Analysis</span>
+            <h3>Cybersecurity Incident Analysis</h3>
+
+            <p class="project-tools">
+              Python · SQL · SQLite · Pandas · Matplotlib
+            </p>
+
+            <p class="project-description">
+              Analyzed 10,596 real-world cybersecurity
+              incidents from the VERIS Community Database
+              to explore patterns in affected industries,
+              attack categories, and incident impacts.
+            </p>
+
+            <ul class="project-findings">
+              <li>
+                Cleaned a dataset containing 2,683 columns
+                and selected 12 relevant fields for analysis.
+              </li>
+              <li>
+                Loaded the cleaned data into SQLite and
+                used SQL queries to investigate incident trends.
+              </li>
+              <li>
+                Identified healthcare as the industry with
+                the most documented incidents (2,564).
+              </li>
+              <li>
+                Created four charts to communicate findings
+                across industries, attack types, and impacts.
+              </li>
+            </ul>
+
+            <a href="https://github.com/besharaisse/cybersecurity-incident-analysis"
+               class="button button-primary"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Project on GitHub
+            </a>
+          </div>
+
+          <div class="project-image">
+            <img src="images/industries.png"
+                 alt="Bar chart showing cybersecurity incidents by industry"
+                 loading="lazy">
+          </div>
+        </article>
+
+        <!-- DOCUMENT RENDERER -->
+
+        <article class="project-row">
+          <div>
+            <span class="project-tag">Internship Project</span>
+            <h3>Multi-Format Document Renderer</h3>
+
+            <p class="project-tools">
+              Python · python-docx · Docker · HTML
+            </p>
+          </div>
+
+          <div>
+            <p>
+              Developed a Python-based document rendering
+              system during my internship at HexaPlus in
+              Seoul, South Korea.
+            </p>
+
+            <p>
+              The system converts structured JSON reports
+              into HTML, DOCX, and HWPX documents while
+              maintaining consistent formatting.
+            </p>
+
+            <p>
+              Refactored the architecture to separate shared
+              rendering logic from format-specific exporters.
+              Added support for lists, tables, quotes, code
+              blocks, hyperlinks, images, and page breaks.
+            </p>
+
+            <p>
+              Dockerized the application and developed a
+              browser-based interface to simplify testing.
+            </p>
+          </div>
+        </article>
+
+        <!-- STEMS & ROSES -->
+
+        <article class="project-row">
+          <div>
+            <span class="project-tag">Client Project</span>
+            <h3>Stems &amp; Roses Website</h3>
+
+            <p class="project-tools">
+              Base44 · Web Development
+            </p>
+          </div>
+
+          <div>
+            <p>
+              Contributed to a website for a relaunching
+              florist, including estimate requests,
+              order requests, order status tracking,
+              and an administrative dashboard.
+            </p>
+
+            <p>
+              Documented project requirements, testing,
+              decisions, and client feedback throughout
+              development.
+            </p>
+
+            <a href="https://stems-roses-stage4.base44.app/"
+               class="project-link"
+               target="_blank"
+               rel="noopener noreferrer">
+              Visit Website →
+            </a>
+          </div>
+        </article>
+
+        <!-- ZIO AUTOBODY -->
+
+        <article class="project-row">
+          <div>
+            <span class="project-tag">Client Project</span>
+            <h3>Zio Autobody Shop Website</h3>
+
+            <p class="project-tools">
+              Wix Studio · Base44
+            </p>
+          </div>
+
+          <div>
+            <p>
+              Designed and built a website for a local
+              auto body shop featuring service information,
+              a photo gallery, customer testimonials,
+              and online appointment requests.
+            </p>
+          </div>
+        </article>
+
+        <!-- CINEMOOD -->
+
+        <article class="project-row">
+          <div>
+            <span class="project-tag">Web Development</span>
+            <h3>CineMood</h3>
+
+            <p class="project-tools">
+              HTML · CSS · JavaScript
+            </p>
+          </div>
+
+          <div>
+            <p>
+              Built a responsive, multi-page movie
+              recommendation website featuring mood-based
+              suggestions, search functionality, and a
+              featured-movie carousel.
+            </p>
+
+            <p>
+              Implemented saved favorites and reviews
+              using browser localStorage and protected
+              the review form against HTML injection.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- EXPERIENCE -->
+
+      <section id="experience">
+        <h2>Experience &amp; Leadership</h2>
+
+        <article class="experience-item">
+          <time class="experience-date">
+            June – August 2026
+          </time>
+
+          <div>
+            <h3>Software Development Intern</h3>
+
+            <p class="project-tools">
+              HexaPlus · Seoul, South Korea
+            </p>
+
+            <p>
+              Developed a Python document rendering system
+              supporting HTML, DOCX, and HWPX formats.
+              Improved the modular architecture, added
+              Docker and a Web UI, and used Git/GitHub
+              for version control. Validated generated
+              documents using ONLYOFFICE while working
+              in an international team.
+            </p>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <time class="experience-date">
+            September 2025 – June 2026
+          </time>
+
+          <div>
+            <h3>Event Coordinator</h3>
+
+            <p class="project-tools">
+              Women in CyberSecurity (WiCyS) · UW Tacoma
+            </p>
+
+            <p>
+              Coordinated cybersecurity workshops and
+              professional development events, including
+              Capture the Flag, Threat Landscape 101,
+              and resume workshops. Worked with guest
+              speakers to create practical learning
+              opportunities for students.
+            </p>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <time class="experience-date">
+            September 2024 – June 2025
+          </time>
+
+          <div>
+            <h3>Treasurer</h3>
+
+            <p class="project-tools">
+              Somali Student Association · UW Tacoma
+            </p>
+
+            <p>
+              Managed chapter finances, tracked expenses,
+              developed event budgets, and collaborated
+              with the Regional Executive Board to support
+              student programming.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- SKILLS -->
+
+      <section id="skills">
+        <h2>Technical Skills</h2>
+
+        <dl class="skills-list">
+          <dt>Programming</dt>
+          <dd>
+            Python, Java, SQL, JavaScript, HTML, CSS
+          </dd>
+
+          <dt>Data Analysis</dt>
+          <dd>
+            Pandas, Matplotlib, SQLite, Data Cleaning,
+            Data Visualization
+          </dd>
+
+          <dt>Development Tools</dt>
+          <dd>
+            Git, GitHub, Docker, VS Code, python-docx
+          </dd>
+
+          <dt>Web Platforms</dt>
+          <dd>
+            Wix Studio, Base44
+          </dd>
+
+          <dt>Additional Skills</dt>
+          <dd>
+            Technical Documentation, Problem Solving,
+            Event Coordination
+          </dd>
+
+          <dt>Spoken Languages</dt>
+          <dd>
+            English, Somali (fluent)
+          </dd>
+        </dl>
+      </section>
+
+      <!-- CONTACT -->
+
+      <section id="contact">
+        <div class="contact-card">
+          <h2>Let's Connect</h2>
+
+          <p>
+            I'm currently seeking internship and
+            entry-level opportunities in information
+            technology, cybersecurity, data analysis,
+            and software development.
+          </p>
+
+          <p>
+            Interested in connecting or discussing
+            opportunities? I'd love to hear from you.
+          </p>
+
+          <a href="mailto:besharaisse65@gmail.com"
+             class="button">
+            Email Me
+          </a>
+
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/beshara-isse-a42427282"
+               target="_blank"
+               rel="noopener noreferrer">
+              LinkedIn
+            </a>
+
+            <a href="https://github.com/besharaisse"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub
+            </a>
+
+            <a href="Beshara_Isse_Resume.pdf"
+               target="_blank"
+               rel="noopener noreferrer">
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Beshara Isse</p>
+    </div>
+  </footer>
+
+</body>
+</html>
