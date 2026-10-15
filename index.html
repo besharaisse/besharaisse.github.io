@@ -132,7 +132,7 @@
       color: var(--muted);
       font-size: 14px;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.2s, background 0.2s;
     }
 
     nav a:hover {
@@ -172,14 +172,24 @@
       background: var(--light-purple);
     }
 
+    /* TOP RESUME BUTTON FIX */
+
     nav a.nav-resume {
+      display: inline-block;
       padding: 9px 18px;
-      color: white;
+      background-color: #4B2E83;
+      color: #FFFFFF;
+      border: 1.5px solid #4B2E83;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 20;
     }
 
     nav a.nav-resume:hover {
-      background: var(--primary-hover);
-      color: white;
+      background-color: #3A2268;
+      color: #FFFFFF;
     }
 
     /* HERO */
@@ -490,7 +500,8 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
 
-        <a href="./BesharaIsse%20Resume.pdf"
+        <!-- TOP RESUME BUTTON -->
+        <a href="https://besharaisse.github.io/BesharaIsse%20Resume.pdf"
            class="button button-primary nav-resume"
            target="_blank"
            rel="noopener noreferrer">
@@ -876,7 +887,8 @@
               GitHub
             </a>
 
-            <a href="./BesharaIsse%20Resume.pdf"
+            <!-- BOTTOM RESUME LINK -->
+            <a href="https://besharaisse.github.io/BesharaIsse%20Resume.pdf"
                target="_blank"
                rel="noopener noreferrer">
               Download Resume
